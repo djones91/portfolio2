@@ -1,0 +1,202 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Abel", sans-serif;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#page-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #111111;
+}
+
+#header-nav {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 150px;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  z-index: 10;
+}
+
+#header-nav h1 {
+  font-size: 1.5em;
+  letter-spacing: 0.5em;
+}
+
+#header-nav .subtext {
+  line-height: 30px;
+  font-size: 16px;
+  letter-spacing: 0.5em;
+}
+
+#header-nav ul {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  list-style: none;
+  color: #ffffff;
+}
+
+#header-nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0.4;
+      -ms-flex-positive: 0.4;
+          flex-grow: 0.4;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#header-nav ul li:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  color: #F7B733;
+}
+
+#header-nav ul li:nth-child(2) {
+  color: #4ABDAC;
+}
+
+#header-nav ul li:nth-child(3) {
+  color: #FC4A1A;
+}
+
+#header-nav ul li:nth-child(4) {
+  color: #79AD45;
+}
+
+#display-panel {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%234abdac' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%232f776d' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%2354b77e' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%2334714e' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%2379ad45' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%2349672b' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23a49b00' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23605a06' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23d27d00' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23784700' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23fc4a1a' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%238c290e' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+#images-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#images-layer #astronaut {
+  position: relative;
+  top: 300px;
+  left: 300px;
+  width: 225px;
+  -webkit-animation: slide-top 8s ease-in-out infinite alternate-reverse both;
+  animation: slide-top 8s ease-in-out infinite alternate-reverse both;
+}
+
+#images-layer #coffee {
+  position: relative;
+  height: 50px;
+  top: 20px;
+  right: 120px;
+  bottom: 50px;
+  -webkit-animation: slide-top 8s ease-in-out infinite alternate-reverse both;
+  animation: slide-top 8s ease-in-out infinite alternate-reverse both;
+}
+
+#quote {
+  color: #ffffff;
+  position: relative;
+  text-align: center;
+  width: 50%;
+  height: 200px;
+  margin: 15% auto;
+  left: 225px;
+  letter-spacing: 0.1em;
+}
+
+#about, #portfolio, #work, #contact {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#about {
+  background-color: rgba(247, 183, 51, 0.7);
+  opacity: 0;
+  z-index: 4;
+}
+
+#portfolio {
+  background-color: #4ABDAC;
+  z-index: 3;
+}
+
+#work {
+  background-color: #FC4A1A;
+  z-index: 2;
+}
+
+#contact {
+  background-color: #79AD45;
+  z-index: 1;
+}
+/*# sourceMappingURL=style.css.map */
