@@ -76,7 +76,6 @@ body {
     display: flex;
     height: 1080px;
     width: 100%;
-    top: -1px;
 }
 
 #home {
@@ -144,7 +143,7 @@ body {
         position: absolute;
         height: 100%;
         width: 100%;
-        background-image: url("../images/ground1.png");
+        background-image: url("../images/ground1.svg");
         background-size: 900px;
         background-attachment: scroll;
         background-repeat: repeat-x;
@@ -172,19 +171,23 @@ body {
 #about {
     @extend %section;
     background-color: $section-one-colour;
+    bottom: 2px;
 }
 
 #portfolio {
     @extend %section;
     background-color: $section-two-colour;
+    bottom: 2px;
 }
 
 #work {
     @extend %section;
     background-color: $section-three-colour;
+    bottom: 2px;
 }
 
 #contact {
     @extend %section;
     background-color: $section-four-colour;
+    bottom: 2px;
 }
