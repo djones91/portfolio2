@@ -1,5 +1,5 @@
 // Imports
-@import url("./bootstrap.min.css");
+@import "./bootstrap/bootstrap.scss";
 @import url("./particles.css");
 @import url("./animations.css");
 
@@ -44,6 +44,13 @@
     $font-small: 0.75rem;
     $font-tiny: 0.5rem;
 
+// Responsive
+
+@include media-breakpoint-up(sm) {  }
+@include media-breakpoint-up(md) {  }
+@include media-breakpoint-up(lg) {  }
+@include media-breakpoint-up(xl) {  }
+
 // -----------------------------------------------------------
 
 html, body {
@@ -74,46 +81,82 @@ body {
     z-index: 2;
     position: relative;
     display: flex;
-    height: 1080px;
     width: 100%;
+    height: 100vh;
 }
 
 #home {
     @extend %section;
     flex-direction: column;
-    height: 980px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%234abdac' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%232f776d' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%2354b77e' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%2334714e' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%2379ad45' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%2349672b' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23a49b00' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23605a06' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23d27d00' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23784700' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23fc4a1a' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%238c290e' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
     background-attachment: scroll;
-    background-size: 1500px;
-    background-position: bottom;
+    background-size: 500px;
+    background-position: right bottom;
     background-repeat: no-repeat;
     color: white;
     text-align: center;
+    min-height: 611px;
+    max-height: 1200px;
 
     #title {
         margin: 50px 0;
         position: relative;
         height: 100px;
         text-transform: uppercase;
+        
+        h1 {
+            font-size: $font-big;
+            white-space: unset;
+        }
+
+        h2 {
+            font-size: $font-normal;
+        }
+
+        @include media-breakpoint-up(sm) { 
+
+            h1 {
+                font-size: $font-huge;
+                white-space: nowrap;
+            }
+    
+            h2 {
+                font-size: $font-big;
+            }
+
+        }
+        
+    }
+
+    #nav-container {
+        flex-grow: 1;
     }
 
     nav {
         position: relative;
         display: flex;
+        flex-direction: column;
         height: 150px;
         flex-grow: 1;
-        margin: 0 10%;
+        margin-bottom: auto;
     
         a {
-        display: flex;
-        flex-grow: 1;
-        font-family: $abel;
-        font-weight: 900;
-        font-size: $font-huge; 
-        text-transform: uppercase;
-        justify-content: center;
-        align-self: center;
-        letter-spacing: 0.2em;
+            display: flex;
+            flex-grow: 1;
+            font-family: $abel;
+            font-weight: 900;
+            font-size: $font-big; 
+            text-transform: uppercase;
+            justify-content: center;
+            align-self: center;
+            letter-spacing: 0.2em;
+            margin-top: 20px;
+
+            @include media-breakpoint-up(md) {
+                font-size: $font-huge;
+                margin-top: 40px;
+            }
+
         }
     
         :first-child {
@@ -135,36 +178,99 @@ body {
         :nth-child(5) {
             color: $contact-colour;
         }
-    
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+            margin: 0 10%;
+        }
+
     }
 
  
     #ground {
         position: absolute;
-        height: 100%;
+        height: 100vh;
+        min-height: 611px;
+        max-height: 1200px;
         width: 100%;
         background-image: url("../images/ground1.svg");
-        background-size: 900px;
+        background-size: 400px;
         background-attachment: scroll;
         background-repeat: repeat-x;
         background-position: bottom;
+        align-content: flex-end;
     
         #explorer {
-            position: absolute;
-            bottom: 57px;
-            left: 40%;
-            width: 300px;
+            position: relative;
+            bottom: 25px;
+            width: 125px;
+            margin: auto auto 0 0;
+
+            @include media-breakpoint-up(sm) { 
+                width: 200px;
+                bottom: 31px;
+            }
+            @include media-breakpoint-up(md) { 
+                width: 200px;
+                bottom: 60px;
+            }
+             @include media-breakpoint-up(lg) { 
+                width: 300px;
+                bottom: 57px;
+            }
         }
 
         #alien {
-            position: absolute;
-            bottom: 57px;
-            left: 20%;
+            position: relative;
+            bottom: 27px;
             width: 100px;
+            margin: auto 0 0 auto;
+            transform: rotate(-10deg);
+            z-index: -1;
+
+            @include media-breakpoint-up(sm) {
+                width: 150px;
+                bottom: 33px
+             }
+            @include media-breakpoint-up(md) { 
+                bottom: 45px;
+             }
+             @include media-breakpoint-up(lg) { 
+                width: 175px;
+             }
         }
-    
+
+        .content-bottom-right {
+            display: flex;
+        }
+
+        .content-bottom-left {
+            display: flex;
+        }
+
+        @include media-breakpoint-up(sm) {
+            min-height: 700px;
+            background-size: 500px;
+        }
+        @include media-breakpoint-up(md) {
+            min-height: 887px;
+            background-size: 900px;
+        }
     }
     
+    @include media-breakpoint-up(sm) {
+        min-height: 700px;
+        background-size: 700px;
+    }
+    @include media-breakpoint-up(md) {
+        min-height: 887px;
+        background-size: 1000px;
+        
+    }
+    @include media-breakpoint-up(lg) {
+        background-size: 1500px;
+    }
+
 }
 
 
@@ -172,6 +278,10 @@ body {
     @extend %section;
     background-color: $section-one-colour;
     bottom: 2px;
+
+    #selfie {
+        width: 300px;
+    }
 }
 
 #portfolio {
