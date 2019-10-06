@@ -10593,7 +10593,17 @@ body {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: 100vh;
+  margin: auto 0;
+  padding-top: 10vh;
+  padding-bottom: 15vh;
+}
+
+#home h1, #about h1, #portfolio h1, #work h1, #contact h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 30px;
 }
 
 #home {
@@ -10610,6 +10620,8 @@ body {
   text-align: center;
   min-height: 611px;
   max-height: 1200px;
+  padding-top: 0;
+  height: 100vh;
 }
 
 #home #title {
@@ -10840,13 +10852,138 @@ body {
   bottom: 2px;
 }
 
-#about #selfie {
-  width: 300px;
+#about .skills-widget {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+
+#about .skills-widget .skills-container {
+  height: 50px;
+  margin-top: 10px;
+  width: 100%;
+  background-color: #111111;
+}
+
+#about .skills-widget .skills-container .skills {
+  height: 100%;
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  color: #ffffff;
+  letter-spacing: 0.2em;
+}
+
+#about .skills-widget .skills-container .html {
+  width: 70%;
+  background-color: #F7B733;
+}
+
+#about .skills-widget .skills-container .css {
+  width: 60%;
+  background-color: #4ABDAC;
+}
+
+#about .skills-widget .skills-container .js {
+  width: 40%;
+  background-color: #FC4A1A;
+}
+
+#about .skills-widget .skills-container .requirements {
+  width: 70%;
+  background-color: #79AD45;
+}
+
+#about .skills-widget .skills-container .wireframing {
+  width: 60%;
+  background-color: #784700;
+}
+
+#about .skills-widget .skills-container .design {
+  width: 30%;
+  background-color: #F7B733;
+}
+
+#about .skills-widget .skills-container .php {
+  width: 0px;
+  background-color: #111111;
+}
+
+#about .skills-widget .skills-container .angular {
+  width: 0px;
+  background-color: #111111;
+}
+
+#about .skills-widget .skills-container .react {
+  width: 0px;
+  background-color: #111111;
+}
+
+#about .skills-widget .skills-container .vue {
+  width: 0px;
+  background-color: #111111;
 }
 
 #portfolio {
   background-color: #b58148;
   bottom: 2px;
+}
+
+#portfolio #portfolio-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#portfolio #portfolio-grid .card.nether, #portfolio #portfolio-grid .card.djones {
+  background-size: cover;
+  background-position: center;
+}
+
+#portfolio #portfolio-grid .card {
+  height: 350px;
+  border: none;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #111111;
+  color: #ffffff;
+}
+
+#portfolio #portfolio-grid .card.nether {
+  background-image: url("../images/nether.png");
+}
+
+#portfolio #portfolio-grid .card.djones {
+  background-image: url("../images/djones.png");
+}
+
+#portfolio #portfolio-grid .card.blank {
+  display: none;
+}
+
+#portfolio #portfolio-grid .card.blank h2 {
+  margin: auto auto;
+}
+
+#portfolio #portfolio-grid .card button {
+  width: 100px;
+  height: 50px;
+  margin: auto auto;
 }
 
 #work {
