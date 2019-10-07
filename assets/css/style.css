@@ -10641,6 +10641,8 @@ body {
 #home #title h1 {
   font-size: 1.5rem;
   white-space: unset;
+  margin-bottom: 5px;
+  line-height: 1.5em;
 }
 
 #home #title h2 {
@@ -10678,6 +10680,7 @@ body {
       -ms-flex-positive: 1;
           flex-grow: 1;
   margin-bottom: auto;
+  margin-top: 20%;
 }
 
 #home nav a {
@@ -10704,7 +10707,6 @@ body {
 @media (min-width: 768px) {
   #home nav a {
     font-size: 2rem;
-    margin-top: 40px;
   }
 }
 
@@ -10746,6 +10748,12 @@ body {
 
 #home nav :nth-child(5):hover {
   color: #fdebc6;
+}
+
+@media (max-width: 991.98px) {
+  #home nav {
+    margin-top: 10%;
+  }
 }
 
 @media (min-width: 992px) {
@@ -10882,6 +10890,15 @@ body {
   color: #111111;
 }
 
+@media (max-width: 991.98px) {
+  #about #spiel {
+    padding: 0 12%;
+  }
+  #about .section-title {
+    padding: 0 12%;
+  }
+}
+
 #about .skills-widget {
   height: 100%;
   display: -webkit-box;
@@ -10894,14 +10911,15 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  vertical-align: middle;
 }
 
 #about .skills-widget .skills-container {
   height: 50px;
   margin-top: 10px;
-  width: 100%;
+  width: 80%;
   background-color: #111111;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #about .skills-widget .skills-container .skills {

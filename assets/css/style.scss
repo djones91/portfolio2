@@ -124,6 +124,8 @@ body {
         h1 {
             font-size: $font-big;
             white-space: unset;
+            margin-bottom: 5px;
+            line-height: 1.5em;
         }
 
         h2 {
@@ -157,6 +159,7 @@ body {
         height: 150px;
         flex-grow: 1;
         margin-bottom: auto;
+        margin-top: 20%;
     
         a {
             display: flex;
@@ -173,7 +176,6 @@ body {
 
             @include media-breakpoint-up(md) {
                 font-size: $font-huge;
-                margin-top: 40px;
             }
 
         }
@@ -216,6 +218,11 @@ body {
             &:hover {
                 color: lighten($contact-colour, 30%);
             }
+        }
+
+
+        @include media-breakpoint-down(md) {
+            margin-top: 10%;
         }
 
         @include media-breakpoint-up(lg) {
@@ -319,19 +326,29 @@ body {
     bottom: 2px;
     color: $about-text-colour;
 
+    @include media-breakpoint-down(md) {
+        #spiel {
+            padding: 0 12%;
+        }
+
+        .section-title {
+            padding: 0 12%;
+        }
+    }
+
     .skills-widget {
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        vertical-align: middle;
         
-
         .skills-container {
             height: 50px;
             margin-top: 10px;
-            width: 100%;
+            width: 80%;
             background-color: $darkness;
+            margin-left: auto;
+            margin-right: auto;
 
             .skills {
                 height: 100%;
