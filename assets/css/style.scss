@@ -6,14 +6,16 @@
 // Colour Palette
 
     $black: #000000;
-    $white: #ffffff;
-
+    $white: #fdfdfd;
     $fresh: #4ABDAC;
     $vermillion: #FC4A1A;
     $sunshine: #F7B733;
-    $clean: #DFDCE3;
+    $clean: rgb(221, 222, 223);
     $green: #79AD45;
     $earthy: #784700;
+    $darkness: #111111;
+    $magma: #a84026 ;
+    $lightearth: #C49A6C;
 
 
 // Colour Section Assignment (allows you to easily change colour theming above and reassign below rather than hunting through the entire CSS)
@@ -24,11 +26,16 @@
     $work-colour: $green;
     $contact-colour: $sunshine;
 
-    $section-one-colour: #C49A6C;
-    $section-two-colour: darken($section-one-colour, 10%);
-    $section-three-colour: darken($section-two-colour, 10%);
-    $section-four-colour: darken($section-three-colour, 10%);
-    $section-five-colour: darken($section-four-colour, 10%);
+    $section-one-colour: $lightearth;
+    $section-two-colour: darken($lightearth, 10%);
+    $section-three-colour: $lightearth;
+    $section-four-colour: darken($lightearth, 10%);
+
+    $about-text-colour: $darkness;
+    $portfolio-text-colour: $darkness;
+    $work-text-colour: $darkness;
+    $contact-text-colour: $darkness;
+    
     
 
 // Fonts
@@ -44,12 +51,6 @@
     $font-small: 0.75rem;
     $font-tiny: 0.5rem;
 
-// Responsive
-
-@include media-breakpoint-up(sm) {  }
-@include media-breakpoint-up(md) {  }
-@include media-breakpoint-up(lg) {  }
-@include media-breakpoint-up(xl) {  }
 
 // -----------------------------------------------------------
 
@@ -61,6 +62,7 @@ html, body {
 body {
     font-family: $abel;
     font-size: $font-basis;
+    color: $darkness;
 }
 
 .z0 {
@@ -69,13 +71,8 @@ body {
     height: 100%;
     position: absolute;
     overflow-x: hidden;
-    background: #111111;
+    background: $darkness;
 }
-
-.row {
-    width: 100%;
-}
-
 
 %section {
     z-index: 2;
@@ -91,9 +88,14 @@ body {
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.2em;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
+        margin-top: 20px;
     }
 
+}
+
+.row {
+    flex-grow: 1;
 }
 
 #home {
@@ -117,6 +119,7 @@ body {
         position: relative;
         height: 100px;
         text-transform: uppercase;
+        flex-grow: 0;
         
         h1 {
             font-size: $font-big;
@@ -144,6 +147,7 @@ body {
 
     #nav-container {
         flex-grow: 1;
+        z-index: 1;
     }
 
     nav {
@@ -165,6 +169,7 @@ body {
             align-self: center;
             letter-spacing: 0.2em;
             margin-top: 20px;
+            text-decoration: none;
 
             @include media-breakpoint-up(md) {
                 font-size: $font-huge;
@@ -175,22 +180,42 @@ body {
     
         :first-child {
             color: $about-colour;
+
+            &:hover {
+                color: lighten($about-colour, 30%);
+            }
         }
     
         :nth-child(2) {
             color: $portfolio-colour;
+
+            &:hover {
+                color: lighten($portfolio-colour, 30%);
+            }
         }
     
         :nth-child(3) {
             color: $work-colour;
+
+            &:hover {
+                color: lighten($work-colour, 30%);
+            }
         }
     
         :nth-child(4) {
             color: $contact-colour;
+
+            &:hover {
+                color: lighten($contact-colour, 30%);
+            }
         }
     
         :nth-child(5) {
             color: $contact-colour;
+
+            &:hover {
+                color: lighten($contact-colour, 30%);
+            }
         }
 
         @include media-breakpoint-up(lg) {
@@ -292,6 +317,7 @@ body {
     @extend %section;
     background-color: $section-one-colour;
     bottom: 2px;
+    color: $about-text-colour;
 
     .skills-widget {
         height: 100%;
@@ -299,13 +325,13 @@ body {
         flex-direction: column;
         justify-content: center;
         vertical-align: middle;
-        margin-left: 20px;
+        
 
         .skills-container {
             height: 50px;
             margin-top: 10px;
             width: 100%;
-            background-color: #111111;
+            background-color: $darkness;
 
             .skills {
                 height: 100%;
@@ -324,10 +350,10 @@ body {
             .requirements {width: 70%; background-color: $green}
             .wireframing {width: 60%; background-color: $earthy}
             .design {width: 30%; background-color: $sunshine}
-            .php {width: 0px; background-color: #111111}
-            .angular {width: 0px; background-color: #111111}
-            .react {width: 0px; background-color: #111111}
-            .vue {width: 0px; background-color: #111111}
+            .php {width: 0px; background-color: $darkness}
+            .angular {width: 0px; background-color: $darkness}
+            .react {width: 0px; background-color: $darkness}
+            .vue {width: 0px; background-color: $darkness}
 
         }
     
@@ -339,6 +365,8 @@ body {
     @extend %section;
     background-color: $section-two-colour;
     bottom: 2px;
+    color: $portfolio-text-colour;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16) inset, 0 3px 6px rgba(0,0,0,0.23) inset, 0 -3px 6px rgba(0,0,0,0.16) inset, 0 -3px 6px rgba(0,0,0,0.23) inset;
 
     #portfolio-grid {
         display: flex;
@@ -350,20 +378,42 @@ body {
         }
 
         .card {
-            height: 350px;
-            border: none;
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-            background-color: #111111;
-            color: $white;
+            background-color: $white;
+            border: 2px solid $sunshine;
+            text-align: center;
+            height: 100%;
 
-            &.nether {
-                @extend %card-specs;
-                background-image: url("../images/nether.png");
+            .card-body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+
+                .btn-primary {
+                    background-color: $fresh;
+                    border-color: $fresh;
+                }
             }
 
-            &.djones {
-                @extend %card-specs;
-                background-image: url("../images/djones.png");
+            img {
+                height: 165px;
+                border-bottom: 2px solid $sunshine;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                transition: opacity 0.3s ease-in-out;
+                opacity: 0;
+                box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+                border-radius: 0.25rem;
+            }
+    
+            &:hover:after {
+                opacity: 1;
             }
 
             &.blank {
@@ -372,28 +422,78 @@ body {
                 h2 {
                     margin: auto auto;
                 }
-
             }
-            
-            
-
         }
-
-
-
-
     }
-
 }
 
 #work {
     @extend %section;
     background-color: $section-three-colour;
     bottom: 2px;
+    color: $work-text-colour;
+
+    /* Timeline holder */
+    ul.timeline {
+        list-style-type: none;
+        position: relative;
+        padding-left: 1.5rem;
+        margin-top: 30px;
+    }
+
+    /* Timeline vertical line */
+    ul.timeline:before {
+        content: ' ';
+        background: $darkness;
+        display: inline-block;
+        position: absolute;
+        left: 16px;
+        width: 4px;
+        height: 100%;
+        z-index: 400;
+        border-radius: 1rem;
+    }
+
+    li.timeline-item {
+        margin: 20px 0;
+        background-color: $white;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        border: 2px solid $sunshine;
+
+        .h5 {
+            font-weight: 900;
+        }
+
+    }
+
+    /* Timeline item arrow */
+    .timeline-arrow {
+        border-top: 0.5rem solid transparent;
+        border-right: 0.5rem solid $sunshine;
+        border-bottom: 0.5rem solid transparent;
+        display: block;
+        position: absolute;
+        left: 2rem;
+    }
+
+    /* Timeline item circle marker */
+    li.timeline-item::before {
+        content: ' ';
+        background: $darkness;
+        display: inline-block;
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid $darkness;
+        left: 11px;
+        width: 14px;
+        height: 14px;
+        z-index: 400;
+    }
 }
 
 #contact {
     @extend %section;
     background-color: $section-four-colour;
     bottom: 2px;
+    color: $contact-text-colour;
 }

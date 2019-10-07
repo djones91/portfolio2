@@ -23,10 +23,10 @@
             </div>
             <div id="nav-container" class="row no-gutters">
                 <nav>
-                    <a href="">About</a>
-                    <a href="">Portfolio</a>
-                    <a href="">Work History</a>
-                    <a href="">Contact</a>
+                    <a href="#about">About</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#work">Work History</a>
+                    <a href="#contact">Contact</a>
                 </nav>
             </div>
             <div id="ground" class="row no-gutters">
@@ -41,29 +41,29 @@
 
         </div>            
         
-        <div id="about" class="row no-gutters">
+        <div id="about" class="row">
             <div class="row">
                 <div class="col"></div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="section-title">
                         <h1>About Me</h1>
                     </div>
                     <div id="spiel">
                             <p>Hi! I'm Daniel.</p>
-                            <p>Take a look to the right. Yep: I'm rather green. Bad thing? I don't think so. I'm very keen to learn and I'll appreciate you to the moon and back if you can hold my hand a little. The web is a scary place for a newbie.</p>
+                            <p>Yep: I'm rather green. Bad thing? I don't think so. I'm very keen to learn and I'll appreciate you to the moon and back if you can hold my hand a little. The web is a confusing place for a newbie.</p>
                             <p>I have a keen interest in making great looking websites, with an attention and focus on colours that pop, themes that wow and copy that inspires. I would love to work with you on your next big project and I enjoy having an opportunity to get really passionate about what I do.</p>
                             <p>I'm great with communication and have good command of both written and spoken English. I'm confident, honest and open, and I would rather proactively identify and solve a problem than wait for someone else to raise it with me. I'm never afraid to admit when I don't know something, even when I feel like I probably should.</p>
-                            <p>For the last few months I have been working with a great company named TyreConnect. These guys have been nothing short of amazing in giving me my first real opportunity to step into the industry and gain some much needed experience to help me land my next big gig. While I've been working for them I've helped them gather requirements for and redesign their B2B eCommerce platform. This has had me engaging closely with key executives and board members within the business, their marketing and operations departments, and meeting with some big name development agencies to obtain proposals and convey our project requirements. I've planned for and conducted workshops, communicated complex needs and requirements, quickly understood the internal workings of the business and focused its key decision-makers on critical decisions required along the way. I've had awesome feedback from them and I've greatly enjoyed my time there.</p>
-                            <p>Did someone say coffee? Yes. Coffee is a problem.</p>
+                            <p>For the last few months I have been working with a great company named TyreConnect. These guys have been nothing short of amazing in giving me my first real opportunity to step into the industry and gain some much needed experience to help me land my next big gig. While I've been working for them I've helped them gather requirements for and redesign their B2B eCommerce platform, as well as dabble in some coding work on their React and Angular applications. The portal redesign work in particular has had me engaging closely with key executives and board members within the business, their marketing and operations departments, and meeting with some big name development agencies to obtain proposals and convey our project requirements. I've planned for and conducted workshops, communicated complex needs and requirements, quickly understood the internal workings of the business and focused its key decision-makers on critical decisions required along the way. I've had awesome feedback from them and I've greatly enjoyed my time there.</p>
+                            <p>Did someone say coffee? Yes. Coffee is a problem. I'm also an avid gamer (PC master race) and a crazy animal person. Don't let me talk to you about birds, because I'll probably never stop.</p>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-lg-3">
                         <div class="skills-widget">
                             <div class="skills-container">
                                 <div class="skills html">HTML</div>
                             </div>
                             <div class="skills-container">
-                                <div class="skills css">CSS & SASS</div>
+                                <div class="skills css">CSS/SASS</div>
                             </div>
                             <div class="skills-container">
                                 <div class="skills js">JavaScript</div>
@@ -104,10 +104,22 @@
                     <div id="portfolio-grid">
                         <div class="row">
                             <div class="col">
-                                <div class="card nether"></div>
+                                <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src="./assets/images/nether.png" alt="Nether Realm Novels">
+                                    <div class="card-body">
+                                        <p class="card-text">Nether Realm Novels</p>
+                                        <a href="#" class="card-link"><button type="button" class="btn btn-primary">Check this out!</button></a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col">
-                                <a href=""><div class="card djones"></div></a>
+                                <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src="./assets/images/djones.png" alt="Daniel Jones Porfolio">
+                                    <div class="card-body">
+                                        <p class="card-text">Daniel Jones Portfolio Site</p>
+                                        <a href="#" class="card-link"><button type="button" class="btn btn-primary" disabled>Check this out!</button></a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col">
                                 <div class="card blank">
@@ -120,8 +132,74 @@
                 <div class="col"></div>
             </div>
         </div>
-        <div id="work" class="row no-gutters"></div>
-        <div id="contact" class="row no-gutters"></div>
+        <div id="work" class="row">
+            <div class="row">
+                <div class="col-lg-9 mx-auto">
+                    <h1>Work History</h1>
+                        
+                    <!-- Timeline -->
+                    <ul class="timeline">
+                        <li class="timeline-item rounded ml-3 p-4">
+                            <div class="timeline-arrow"></div>
+                            <h2 class="h5 mb-0">TyreConnect Pty Ltd</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i>Junior UX/UI/Frontend Developer - March 2019 to Present</span>
+                            <ul class="text-small mt-2 font-weight-light">
+                                <li>Requirements gathering, competitor analysis and documentation, project tracking and scoping.</li>
+                                <li>Wireframing and design work (Figma), working closely with business executives, planning for and conducting workshops and meetings.</li>
+                                <li>Engaged with UX firms to gather proposals, communicated specific research and design needs.</li>
+                                <li>HTML and CSS work to generate and manage client whitelabels (themes) and email signatures.</li>
+                                <li>Bugfixes and UI improvements to Angular and React-based applications.</li>
+                            </ul>
+                        </li>
+                        <li class="timeline-item rounded ml-3 p-4">
+                            <div class="timeline-arrow"></div>
+                            <h2 class="h5 mb-0">Verbiscript</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i>Owner/Operator - May 2016 to Present</span>
+                            <ul class="text-small mt-2 font-weight-light">
+                                <li>Operated and maintained an audio transcription business.</li>
+                                <li>Negotiated and managed contracts with national transcription businesses.</li>
+                                <li>Maintained highest quality grade with largest client for entire period.</li>                            
+                            </ul>
+                        </li>
+                        <li class="timeline-item rounded ml-3 p-4">
+                                <div class="timeline-arrow"></div>
+                                <h2 class="h5 mb-0">Living Space Cockburn Central</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i>Chairman and Treasurer (Volunteer Role, Elected) - August 2016 to December 2018</span>
+                                <ul class="text-small mt-2 font-weight-light">
+                                    <li>Managed the owner’s corporation for 139 apartments.</li>
+                                    <li>Handled legal disputes, worked closely with lawyers and led our team in State Administrative Tribunal matters.</li>
+                                    <li>Maintaining relationships and ongoing coordination with WA Police, members of State Parliament and Department of Housing.</li>
+                                    <li>Planned budgets, worked closely with and instructed strata management in day-to-day operations.</li>
+                                    <li>Chaired monthly Council of Owners meetings and annual general meetings (AGMs).</li>
+                                    <li>Recorded meetings and prepared minutes of meetings.</li>
+                                    <li>Wrote letters to and liaised with owners in the complex to address concerns and handle disputes.</li>
+                                    <li>Met with and directed tradespeople working onsite to address remedial works and ongoing maintenance.</li>                                
+                                </ul>
+                            </li>
+                        <li class="timeline-item rounded ml-3 p-4">
+                            <div class="timeline-arrow"></div>
+                            <h2 class="h5 mb-0">Auscript Australasia Pty Ltd</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i>Document Merger (Internal Promotion) - December 2014 to May 2016</span>
+                            <ul class="text-small mt-2 font-weight-light">
+                                <li>Combined court transcripts typed by audio transcribers, checking quality, consistency and providing feedback.</li>
+                                <li>Managed workflow and coordinated numerous interstate departments to meet important deadlines.</li>
+                                <li>Supervised and supported audio transcribers.</li>
+                                <li>Maintained an advanced understanding of the various transcription styles and jurisdictions.
+                                <li>Created and improved upon working documentation and style guides.</li>
+                            </ul>
+                        </li>
+                        <li class="timeline-item rounded ml-3 p-4">
+                            <div class="timeline-arrow"></div>
+                            <h2 class="h5 mb-0">Auscript Australasia Pty Ltd</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i>Audio Transcriber - April 2013 to December 2014</span>
+                            <ul class="text-small mt-2 font-weight-light">
+                                <li>Typed high quality transcript for government and justice clients.</li>
+                                <li>Maintained highest possible rating (platinum, 99%+ accuracy) across numerous transcription styles and jurisdictions.</li>
+                                <li>Obtained and held numerous high profile security clearances and one of a small number of typists to work on high profile cases.</li>                            </ul>                        
+                        </li>
+                    </ul><!-- End -->
+        
+                </div>
+            </div>
+        </div>
+        <div id="contact" class="row"></div>
+    </div>
+        
     </div>
 
 
