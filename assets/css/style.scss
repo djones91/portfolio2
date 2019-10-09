@@ -14,7 +14,7 @@
     $green: #79AD45;
     $earthy: #784700;
     $darkness: #111111;
-    $magma: #a84026 ;
+    $magma: #9b2c00;
     $lightearth: #C49A6C;
 
 
@@ -27,15 +27,17 @@
     $contact-colour: $sunshine;
 
     $section-one-colour: $lightearth;
-    $section-two-colour: darken($lightearth, 10%);
+    $section-two-colour: lighten($darkness, 10%);
     $section-three-colour: $lightearth;
-    $section-four-colour: darken($lightearth, 10%);
+    $section-four-colour: lighten($darkness, 10%);
 
     $about-text-colour: $darkness;
-    $portfolio-text-colour: $darkness;
+    $portfolio-text-colour: $white;
     $work-text-colour: $darkness;
-    $contact-text-colour: $darkness;
+    $contact-text-colour: $white;
     
+    $workitems-background: $white;
+    $workitems-text: $darkness;
     
 
 // Fonts
@@ -65,6 +67,36 @@ body {
     color: $darkness;
 }
 
+.btn-primary {
+    background-color: $fresh;
+    color: $white;
+    border: 1px solid $fresh;
+
+    &:hover {
+        background-color: lighten($fresh, 20%);
+        border-color: lighten($fresh, 20%);
+    }
+
+    &.disabled {
+        background-color: lighten($fresh, 20%);
+        border-color: lighten($fresh, 20%);
+    }
+
+    &:focus {
+        border-color: $fresh;
+        box-shadow: 0 0 0 0.2rem $fresh;
+    }
+}
+
+.section-title {
+    @include media-breakpoint-down(sm) {
+        h1 {
+            font-size: $font-tiny;
+        }
+        
+    }
+}
+
 .z0 {
     width: 100%;
     z-index: 0;
@@ -79,9 +111,10 @@ body {
     position: relative;
     display: flex;
     width: 100%;
-    margin: auto 0;
-    padding-top: 10vh;
-    padding-bottom: 15vh;
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 100px 0;
 
     h1 {
         font-size: $font-huge;
@@ -92,10 +125,11 @@ body {
         margin-top: 20px;
     }
 
+
 }
 
 .row {
-    flex-grow: 1;
+    width: 100%;
 }
 
 #home {
@@ -108,16 +142,14 @@ body {
     background-repeat: no-repeat;
     color: white;
     text-align: center;
-    min-height: 611px;
     max-height: 1200px;
-    padding-top: 0;
+    padding: 0;
     height: 100vh;
-
+    font-weight: 700;
 
     #title {
-        margin: 50px 0;
+        margin-bottom: 10px;
         position: relative;
-        height: 100px;
         text-transform: uppercase;
         flex-grow: 0;
         
@@ -132,8 +164,8 @@ body {
             font-size: $font-normal;
         }
 
-        @include media-breakpoint-up(sm) { 
-
+        @include media-breakpoint-up(sm) {
+            
             h1 {
                 font-size: $font-huge;
                 white-space: nowrap;
@@ -159,7 +191,6 @@ body {
         height: 150px;
         flex-grow: 1;
         margin-bottom: auto;
-        margin-top: 20%;
     
         a {
             display: flex;
@@ -171,8 +202,14 @@ body {
             justify-content: center;
             align-self: center;
             letter-spacing: 0.2em;
-            margin-top: 20px;
+
             text-decoration: none;
+
+            @include media-breakpoint-up(sm) {
+                a {
+                    margin-top: 20px;
+                }
+            }
 
             @include media-breakpoint-up(md) {
                 font-size: $font-huge;
@@ -220,14 +257,12 @@ body {
             }
         }
 
-
-        @include media-breakpoint-down(md) {
-            margin-top: 10%;
+        @include media-breakpoint-down(sm) {
+            margin-top: 0;
         }
 
         @include media-breakpoint-up(lg) {
             flex-direction: row;
-            margin: 0 10%;
         }
 
     }
@@ -236,7 +271,6 @@ body {
     #ground {
         position: absolute;
         height: 100vh;
-        min-height: 611px;
         max-height: 1200px;
         width: 100%;
         background-image: url("../images/ground1.svg");
@@ -277,13 +311,13 @@ body {
             @include media-breakpoint-up(sm) {
                 width: 150px;
                 bottom: 33px
-             }
+            }
             @include media-breakpoint-up(md) { 
                 bottom: 45px;
-             }
-             @include media-breakpoint-up(lg) { 
+            }
+            @include media-breakpoint-up(lg) { 
                 width: 175px;
-             }
+            }
         }
 
         .content-bottom-right {
@@ -299,7 +333,7 @@ body {
             background-size: 500px;
         }
         @include media-breakpoint-up(md) {
-            min-height: 887px;
+            min-height: 750px;
             background-size: 900px;
         }
     }
@@ -309,8 +343,10 @@ body {
         background-size: 700px;
     }
     @include media-breakpoint-up(md) {
-        min-height: 887px;
-        background-size: 1000px;
+        min-height: 750px;
+        background-size: 950px;
+
+        
         
     }
     @include media-breakpoint-up(lg) {
@@ -322,13 +358,15 @@ body {
 
 #about {
     @extend %section;
-    background-color: $section-one-colour;
     bottom: 2px;
     color: $about-text-colour;
+    background: $section-one-colour;
+    border-top: 20px solid $lightearth;
 
     @include media-breakpoint-down(md) {
         #spiel {
             padding: 0 12%;
+            margin-bottom: 50px;
         }
 
         .section-title {
@@ -340,15 +378,12 @@ body {
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         
         .skills-container {
             height: 50px;
             margin-top: 10px;
-            width: 80%;
+            width: 100%;
             background-color: $darkness;
-            margin-left: auto;
-            margin-right: auto;
 
             .skills {
                 height: 100%;
@@ -373,6 +408,11 @@ body {
             .vue {width: 0px; background-color: $darkness}
 
         }
+
+        @include media-breakpoint-down(md) {
+            padding-left: 12%;
+            padding-right: 5%;
+        }
     
     }
  
@@ -380,10 +420,13 @@ body {
 
 #portfolio {
     @extend %section;
-    background-color: $section-two-colour;
+    background-image: url("../images/cave.svg");
+    background-attachment: fixed;
+    background-size: 2000px;
+    // background-color: $section-two-colour;
     bottom: 2px;
     color: $portfolio-text-colour;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16) inset, 0 3px 6px rgba(0,0,0,0.23) inset, 0 -3px 6px rgba(0,0,0,0.16) inset, 0 -3px 6px rgba(0,0,0,0.23) inset;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19) inset, 0 6px 6px rgba(0,0,0,0.23) inset, 0 -10px 20px rgba(0,0,0,0.19) inset, 0 -6px 6px rgba(0,0,0,0.23) inset;
 
     #portfolio-grid {
         display: flex;
@@ -395,27 +438,28 @@ body {
         }
 
         .card {
+            width: 300px;
+            min-width: 300px;
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
             background-color: $white;
-            border: 2px solid $sunshine;
             text-align: center;
-            height: 100%;
+            color: $darkness;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+
 
             .card-body {
+                z-index: 1;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-end;
-
-                .btn-primary {
-                    background-color: $fresh;
-                    border-color: $fresh;
-                }
             }
 
             img {
                 height: 165px;
-                border-bottom: 2px solid $sunshine;
+                // border-bottom: 2px solid $magma;
             }
 
             &:after {
@@ -473,9 +517,10 @@ body {
 
     li.timeline-item {
         margin: 20px 0;
-        background-color: $white;
+        background-color: $workitems-background;
+        // border: 2px solid $darkness;
+        color: $workitems-text;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        border: 2px solid $sunshine;
 
         .h5 {
             font-weight: 900;
@@ -486,7 +531,7 @@ body {
     /* Timeline item arrow */
     .timeline-arrow {
         border-top: 0.5rem solid transparent;
-        border-right: 0.5rem solid $sunshine;
+        border-right: 0.5rem solid $workitems-background;
         border-bottom: 0.5rem solid transparent;
         display: block;
         position: absolute;
@@ -513,4 +558,31 @@ body {
     background-color: $section-four-colour;
     bottom: 2px;
     color: $contact-text-colour;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19) inset, 0 6px 6px rgba(0,0,0,0.23) inset, 0 -10px 20px rgba(0,0,0,0.19) inset, 0 -6px 6px rgba(0,0,0,0.23) inset;
+
+    form {
+        margin-top: 50px;
+    }
+
+    .textarea .form-control {
+        height: 100px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $fresh;
+        font-weight: 900;
+
+        &:hover {
+            color: lighten($fresh, 20%);
+        }
+    }
+
+    hr {
+        border: 1px solid $sunshine;
+        opacity: 1;
+        margin: 50px 0;
+    }
+ 
+
 }
