@@ -3,6 +3,23 @@
 @import url("./particles.css");
 @import url("./animations.css");
 
+@font-face {
+    font-family: "Stellar";
+    src: url(../font/Stellar-light.otf);
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: "Stellar";
+    src: url(../font/Stellar-Bold.otf);
+    font-weight: 900;
+  }
+
+  @font-face {
+    font-family: "UFO";
+    src: url(../font/UFONEST-Regluar.ttf);
+  }
+
 // Colour Palette
 
     $black: #000000;
@@ -12,13 +29,17 @@
     $sunshine: #F7B733;
     $clean: rgb(221, 222, 223);
     $green: #79AD45;
-    $earthy: #784700;
+    $earthy: #41271d;
     $darkness: #111111;
     $magma: #9b2c00;
+    $magma-light: #74280a;
     $lightearth: #C49A6C;
+    $brightearth: #d27d00;
+    $lime: #a49b00;
+    $ombre: #d27d00;
 
 
-// Colour Section Assignment (allows you to easily change colour theming above and reassign below rather than hunting through the entire CSS)
+// Colour Section Assignment
 
     $home-colour: $sunshine;
     $about-colour: $fresh;
@@ -27,14 +48,16 @@
     $contact-colour: $sunshine;
 
     $section-one-colour: $lightearth;
-    $section-two-colour: lighten($darkness, 10%);
+    $section-two-colour: $magma;
     $section-three-colour: $lightearth;
     $section-four-colour: lighten($darkness, 10%);
 
-    $about-text-colour: $darkness;
+    $about-text-colour: $earthy;
     $portfolio-text-colour: $white;
-    $work-text-colour: $darkness;
+    $work-text-colour: $earthy;
     $contact-text-colour: $white;
+    $link-text-colour: $magma;
+    $link-hover-colour: $earthy;
     
     $workitems-background: $white;
     $workitems-text: $darkness;
@@ -43,15 +66,19 @@
 // Fonts
     $abel: 'Abel', sans-serif;
     $roboto: 'Roboto', sans-serif;
+    $custom1: 'Stellar', sans-serif;
+    $custom2: 'UFO', sans-serif;
+
+    $inUse: $custom1;
 
 // Font sizing
-    $font-basis: 14pt; // This will calculate all font sizes from here on, so increase this if you want everything bigger!
+    $font-basis: 14pt;
     $font-jumbo: 3rem;
     $font-huge: 2rem;
     $font-big: 1.5rem;
     $font-normal: 1rem;
-    $font-small: 0.75rem;
-    $font-tiny: 0.5rem;
+    $font-small: 0.9rem;
+    $font-tiny: 0.75rem;
 
 
 // -----------------------------------------------------------
@@ -62,24 +89,25 @@ html, body {
 }
 
 body {
-    font-family: $abel;
+    font-family: $inUse;
     font-size: $font-basis;
-    color: $darkness;
+    color: $earthy;
+
+    @include media-breakpoint-down(sm) {
+        font-size: $font-small;
+    }
 }
 
 .btn-primary {
-    background-color: $fresh;
+    background-color: $darkness;
     color: $white;
-    border: 1px solid $fresh;
 
     &:hover {
-        background-color: lighten($fresh, 20%);
-        border-color: lighten($fresh, 20%);
+        background-color: lighten($darkness, 20%);
     }
 
     &.disabled {
-        background-color: lighten($fresh, 20%);
-        border-color: lighten($fresh, 20%);
+        background-color: lighten($darkness, 20%);
     }
 
     &:focus {
@@ -89,12 +117,7 @@ body {
 }
 
 .section-title {
-    @include media-breakpoint-down(sm) {
-        h1 {
-            font-size: $font-tiny;
-        }
-        
-    }
+    
 }
 
 .z0 {
@@ -116,14 +139,32 @@ body {
     padding: 100px 0;
 
     h1 {
+        font-family: $inUse;
         font-size: $font-huge;
-        font-weight: 900;
+        font-weight: 400;
         text-transform: uppercase;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.4em;
         margin-bottom: 50px;
         margin-top: 20px;
+        text-shadow: 1px 1px 0px #efc598;
     }
 
+    @include media-breakpoint-down(md) {
+        padding: 50px 0;
+
+        h1 {
+            font-size: $font-big;
+            margin-bottom: 30px;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+
+        h1 {
+            font-size: $font-normal;
+            
+        }      
+    }
 
 }
 
@@ -148,123 +189,129 @@ body {
 
     #title {
         margin-bottom: 10px;
+        margin-top: 50px;
         position: relative;
         text-transform: uppercase;
         flex-grow: 0;
         
         h1 {
-            font-size: $font-big;
+            font-size: $font-huge;
             white-space: unset;
             margin-bottom: 5px;
             line-height: 1.5em;
+            text-shadow: none;
         }
 
-        h2 {
-            font-size: $font-normal;
-        }
 
-        @include media-breakpoint-up(sm) {
-            
+        @include media-breakpoint-down(md) {
+
             h1 {
-                font-size: $font-huge;
-                white-space: nowrap;
-            }
-    
-            h2 {
                 font-size: $font-big;
             }
 
         }
+
+        @include media-breakpoint-down(sm) {
+
+            h1 {
+                font-size: $font-normal;
+            }
+
+        }
+
         
     }
 
     #nav-container {
         flex-grow: 1;
         z-index: 1;
-    }
 
-    nav {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: 150px;
-        flex-grow: 1;
-        margin-bottom: auto;
-    
-        a {
+        nav {
+            position: relative;
             display: flex;
+            flex-direction: column;
+            height: 150px;
             flex-grow: 1;
-            font-family: $abel;
-            font-weight: 900;
-            font-size: $font-big; 
-            text-transform: uppercase;
-            justify-content: center;
-            align-self: center;
-            letter-spacing: 0.2em;
-
-            text-decoration: none;
-
-            @include media-breakpoint-up(sm) {
-                a {
-                    margin-top: 20px;
+            margin-bottom: auto;
+        
+            a {
+                display: flex;
+                flex-grow: 1;
+                font-family: $inUse;
+                font-weight: 400;
+                text-transform: uppercase;
+                justify-content: center;
+                align-self: center;
+                letter-spacing: 0.2em;
+                text-decoration: none;
+                font-size: $font-huge;
+    
+                @include media-breakpoint-down(md) {
+                    font-size: $font-big;
+                    margin-top: 40px;
+                }
+    
+                @include media-breakpoint-down(sm) {
+                    
+                    font-size: $font-normal;
+                }
+    
+             }
+        
+            :first-child {
+                color: $about-colour;
+    
+                &:hover {
+                    color: lighten($about-colour, 30%);
                 }
             }
-
-            @include media-breakpoint-up(md) {
-                font-size: $font-huge;
-            }
-
-        }
+        
+            :nth-child(2) {
+                color: $portfolio-colour;
     
-        :first-child {
-            color: $about-colour;
-
-            &:hover {
-                color: lighten($about-colour, 30%);
+                &:hover {
+                    color: lighten($portfolio-colour, 30%);
+                }
             }
-        }
+        
+            :nth-child(3) {
+                color: $work-colour;
     
-        :nth-child(2) {
-            color: $portfolio-colour;
-
-            &:hover {
-                color: lighten($portfolio-colour, 30%);
+                &:hover {
+                    color: lighten($work-colour, 30%);
+                }
             }
-        }
+        
+            :nth-child(4) {
+                color: $contact-colour;
     
-        :nth-child(3) {
-            color: $work-colour;
-
-            &:hover {
-                color: lighten($work-colour, 30%);
+                &:hover {
+                    color: lighten($contact-colour, 30%);
+                }
             }
-        }
+        
+            :nth-child(5) {
+                color: $contact-colour;
     
-        :nth-child(4) {
-            color: $contact-colour;
-
-            &:hover {
-                color: lighten($contact-colour, 30%);
+                &:hover {
+                    color: lighten($contact-colour, 30%);
+                }
             }
-        }
     
-        :nth-child(5) {
-            color: $contact-colour;
-
-            &:hover {
-                color: lighten($contact-colour, 30%);
+            @include media-breakpoint-down(sm) {
+                margin-top: 0;
             }
+    
+            @include media-breakpoint-up(lg) {
+                flex-direction: row;
+            }
+    
         }
 
-        @include media-breakpoint-down(sm) {
-            margin-top: 0;
-        }
-
-        @include media-breakpoint-up(lg) {
-            flex-direction: row;
-        }
 
     }
+
+
 
  
     #ground {
@@ -360,18 +407,58 @@ body {
     bottom: 2px;
     color: $about-text-colour;
     background: $section-one-colour;
-    border-top: 20px solid $lightearth;
+    padding-bottom: 120px;
 
-    @include media-breakpoint-down(md) {
+    hr {
+        border: 1px solid $earthy;
+        opacity: 0.2;
+        margin: 25px 0 50px 0;
+    }
+
+    #about-container {
+
+        margin-bottom: 30px;
+
+        #display-picture {
+            width: 200px;
+            border-radius: 4px;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+
+            @include media-breakpoint-down(md) {
+                width: 150px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                display: none;
+            }
+        }
+    
         #spiel {
-            padding: 0 12%;
-            margin-bottom: 50px;
+            margin-left: 50px;
+
+            @include media-breakpoint-down(md) {
+                margin-left: 25px;
+            }
+
+            h1 {
+                letter-spacing: 0.2em;
+                font-weight: bold;
+            }
         }
 
-        .section-title {
-            padding: 0 12%;
+    }
+
+    
+
+    a {
+        color: $link-text-colour;
+        text-decoration: none;
+
+        &:hover {
+            color: $link-hover-colour;
         }
     }
+
 
     .skills-widget {
         height: 100%;
@@ -382,25 +469,32 @@ body {
             height: 50px;
             margin-top: 10px;
             width: 100%;
-            background-color: $darkness;
+            background-color: $earthy;
+            border-radius: 4px;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
 
             .skills {
+                position: relative;
                 height: 100%;
                 text-align: left;
                 padding-top: 10px;
                 padding-left: 10px;
                 padding-bottom: 10px;
-                color: $white; 
-                letter-spacing: 0.2em;
-                
+                color: darken($earthy, 5%); 
+                letter-spacing: 0.1em;
+                line-height: auto;
+                left: -1px;
+                border-radius: 4px;
+                text-overflow: ellipsis;
+                font-weight: bold;
             }
 
-            .html {width: 70%; background-color: $sunshine;}
-            .css {width: 60%; background-color: $fresh}
-            .js {width: 40%; background-color: $vermillion}
+            .html {width: 50%; background-color: $sunshine;}
+            .css {width: 30%; background-color: $fresh}
+            .js {width: 30%; background-color: $ombre}
             .requirements {width: 70%; background-color: $green}
-            .wireframing {width: 60%; background-color: $earthy}
-            .design {width: 30%; background-color: $sunshine}
+            .wireframing {width: 50%; background-color: $magma}
+            .design {width: 50%; background-color: $lime}
             .php {width: 0px; background-color: $darkness}
             .angular {width: 0px; background-color: $darkness}
             .react {width: 0px; background-color: $darkness}
@@ -419,13 +513,20 @@ body {
 
 #portfolio {
     @extend %section;
-    background-image: url("../images/cave.svg");
-    background-attachment: fixed;
-    background-size: 2000px;
-    // background-color: $section-two-colour;
+    background-color: $section-two-colour;
     bottom: 2px;
     color: $portfolio-text-colour;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19) inset, 0 6px 6px rgba(0,0,0,0.23) inset, 0 -10px 20px rgba(0,0,0,0.19) inset, 0 -6px 6px rgba(0,0,0,0.23) inset;
+    box-shadow: 0 8px 0 rgba(0,0,0,0.19) inset, 
+                0 -8px 0 rgba(0,0,0,0.19) inset;
+   
+    h1 {    	
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+    margin-bottom: 80px;
+    }
+
+    .btn-primary {
+        border: none;
+    }
 
     #portfolio-grid {
         display: flex;
@@ -437,54 +538,78 @@ body {
         }
 
         .card {
-            width: 300px;
-            min-width: 300px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-            background-color: $white;
+            width: 500px;
+            background: none;
             text-align: center;
-            color: $darkness;
+            color: $white;
             margin-bottom: 20px;
             margin-left: auto;
             margin-right: auto;
-            max-height: 300px;
+            max-height: 500px;
+            border: none;
 
+            .image-button {
+                position: relative;
+                border-radius: 4px;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    transition: opacity 0.3s ease-in-out;
+                    opacity: 1;
+                    box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+                    border-radius: 0.25rem;
+                }
+
+                &:hover::before {
+                    opacity: 0;
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    transition: opacity 0.3s ease-in-out;
+                    opacity: 0;
+                    box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+                    border-radius: 0.25rem;
+                }
+
+                &:hover::after {
+                    opacity: 1;
+                }
+            }
 
             .card-body {
+                flex: none;
                 z-index: 1;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-end;
-            }
-
-            img {
-                height: 165px;
-                // border-bottom: 2px solid $magma;
-            }
-
-            &:after {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                transition: opacity 0.3s ease-in-out;
-                opacity: 0;
-                box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-                border-radius: 0.25rem;
-            }
-    
-            &:hover:after {
-                opacity: 1;
-            }
-
-            &.blank {
-                display: none;
 
                 h2 {
-                    margin: auto auto;
+                    font-size: $font-big;
+
+                    @include media-breakpoint-down(md) {
+                        font-size: $font-normal;
+                    }
                 }
             }
-        }
+
+            .card-img-top {
+                border-radius: 4px;
+                position: relative;
+                max-height: 300px;
+            }
+        }                
     }
 }
 
@@ -492,7 +617,6 @@ body {
     @extend %section;
     background-color: $section-three-colour;
     bottom: 2px;
-    color: $work-text-colour;
 
     /* Timeline holder */
     ul.timeline {
@@ -505,7 +629,7 @@ body {
     /* Timeline vertical line */
     ul.timeline:before {
         content: ' ';
-        background: $darkness;
+        background: $earthy;
         display: inline-block;
         position: absolute;
         left: 16px;
@@ -517,10 +641,7 @@ body {
 
     li.timeline-item {
         margin: 20px 0;
-        background-color: $workitems-background;
-        // border: 2px solid $darkness;
-        color: $workitems-text;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        border: 2px solid $earthy;
 
         .h5 {
             font-weight: 900;
@@ -531,7 +652,7 @@ body {
     /* Timeline item arrow */
     .timeline-arrow {
         border-top: 0.5rem solid transparent;
-        border-right: 0.5rem solid $workitems-background;
+        border-right: 0.5rem solid $earthy;
         border-bottom: 0.5rem solid transparent;
         display: block;
         position: absolute;
@@ -541,11 +662,11 @@ body {
     /* Timeline item circle marker */
     li.timeline-item::before {
         content: ' ';
-        background: $darkness;
+        background: $earthy;
         display: inline-block;
         position: absolute;
         border-radius: 50%;
-        border: 3px solid $darkness;
+        border: 3px solid $earthy;
         left: 11px;
         width: 14px;
         height: 14px;
@@ -558,7 +679,11 @@ body {
     background-color: $section-four-colour;
     bottom: 2px;
     color: $contact-text-colour;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19) inset, 0 6px 6px rgba(0,0,0,0.23) inset, 0 -10px 20px rgba(0,0,0,0.19) inset, 0 -6px 6px rgba(0,0,0,0.23) inset;
+    // box-shadow: 0 10px 20px rgba(0,0,0,0.19) inset, 0 6px 6px rgba(0,0,0,0.23) inset, 0 -10px 20px rgba(0,0,0,0.19) inset, 0 -6px 6px rgba(0,0,0,0.23) inset;
+
+    h1 {
+        text-shadow: none;
+    }
 
     form {
         margin-top: 50px;
