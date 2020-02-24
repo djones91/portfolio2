@@ -11032,7 +11032,6 @@ body {
   padding-top: 10px;
   padding-left: 10px;
   padding-bottom: 10px;
-  color: #2f1c15;
   letter-spacing: 0.1em;
   line-height: auto;
   left: -1px;
@@ -11044,51 +11043,43 @@ body {
 #about .skills-widget .skills-container .html {
   width: 50%;
   background-color: #F7B733;
+  color: #5a3e04;
+  text-shadow: 1px 1px 0 #fbda95;
 }
 
 #about .skills-widget .skills-container .css {
   width: 30%;
   background-color: #4ABDAC;
+  color: #173e38;
+  text-shadow: 1px 1px 0 #95d8ce;
 }
 
 #about .skills-widget .skills-container .js {
   width: 30%;
   background-color: #d27d00;
+  color: #201300;
+  text-shadow: 1px 1px 0 #ffaf39;
 }
 
 #about .skills-widget .skills-container .requirements {
   width: 70%;
   background-color: #79AD45;
+  color: #202d12;
+  text-shadow: 1px 1px 0 #acd088;
 }
 
 #about .skills-widget .skills-container .wireframing {
   width: 50%;
   background-color: #9b2c00;
+  color: #1c0800;
+  text-shadow: 1px 1px 0 #ce3a00;
 }
 
 #about .skills-widget .skills-container .design {
   width: 50%;
   background-color: #a49b00;
-}
-
-#about .skills-widget .skills-container .php {
-  width: 0px;
-  background-color: #111111;
-}
-
-#about .skills-widget .skills-container .angular {
-  width: 0px;
-  background-color: #111111;
-}
-
-#about .skills-widget .skills-container .react {
-  width: 0px;
-  background-color: #111111;
-}
-
-#about .skills-widget .skills-container .vue {
-  width: 0px;
-  background-color: #111111;
+  color: #252200;
+  text-shadow: 1px 1px 0 #d7cb00;
 }
 
 @media (max-width: 991.98px) {
